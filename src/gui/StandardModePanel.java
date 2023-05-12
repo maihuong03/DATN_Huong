@@ -21,14 +21,10 @@ import javax.swing.event.ChangeListener;
 import common.ProcessUtil;
 
 /**
- * @author Huong
  * @category Mode xử lý cơ bản
  */
 public class StandardModePanel extends JPanel implements ChangeListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JSlider compW; // thanh thời gian xử lý
@@ -137,7 +133,7 @@ public class StandardModePanel extends JPanel implements ChangeListener {
 		}
 
 	}
-	
+
 	public void setComponentEnable(boolean value) {
 		compW.setEnabled(value);
 		revalidate();

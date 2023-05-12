@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package gui;
 
 import java.util.Random;
@@ -13,15 +11,8 @@ import javax.swing.border.EtchedBorder;
 
 import cstt.SuKienForm;
 
-/**
- * @author HuyLV
- *
- */
 public class StatusBar extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel message;
 	Random r = new Random();
@@ -56,23 +47,27 @@ public class StatusBar extends JPanel {
 	public void setMessage(int x, int y, int time) {
 		workingTimer += time;
 		String lbl1Text = "Total processing time: ";
-		int n=0;
-		
-		while( n<35) n=r.nextInt(105);
-//		message.setText("[ " + x + ", " + y + " ]   |   " + lbl1Text + workingTimer + " (miliseconds)" +" | Rule :"+n+" "+SuKienForm.dssk.get(n).getIF()+ ", " +SuKienForm.dssk.get(n).getTHEN());
-		message.setText("[ " + x + ", " + y + " ]   |   " + lbl1Text + workingTimer	+ " (miliseconds)");
+		int n = 0;
+
+		while (n < 35)
+			n = r.nextInt(105);
+		// message.setText("[ " + x + ", " + y + " ] | " + lbl1Text + workingTimer + "
+		// (miliseconds)" +" | Rule :"+n+" "+SuKienForm.dssk.get(n).getIF()+ ", "
+		// +SuKienForm.dssk.get(n).getTHEN());
+		message.setText("[ " + x + ", " + y + " ]   |   " + lbl1Text + workingTimer + " (miliseconds)");
 
 	}
-	
+
 	public void setMessageOrder(String X) {
 		message.setText("Order: " + X);
 	}
-	
-//	public void setRuleMessage(String x) {
-//		String lbl1Text = "Total processing time: ";
-//		message.setText("[ " + "_" + ", " + "_" + " ]   |   " + lbl1Text + "____" + " (miliseconds) | "  + "Rule: "  + x);
-//		
-//	}
+
+	// public void setRuleMessage(String x) {
+	// String lbl1Text = "Total processing time: ";
+	// message.setText("[ " + "_" + ", " + "_" + " ] | " + lbl1Text + "____" + "
+	// (miliseconds) | " + "Rule: " + x);
+	//
+	// }
 
 	public int getworkingTime() {
 		return workingTimer;

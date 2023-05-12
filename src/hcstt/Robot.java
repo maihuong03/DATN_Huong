@@ -22,11 +22,6 @@ import gui.CellPane;
 import gui.MainGui;
 import gui.StatusBar;
 
-/**
- * @author HuyLV
- *
- */
-
 public class Robot extends JPanel implements ActionListener, MouseListener {
 
 	/**
@@ -73,13 +68,13 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 	}
 
 	// lấy thời gian
-//	public int getDELAY() {
-//		return DELAY;
-//	}
-//
-//	public void setDELAY(int dELAY) {
-//		DELAY = dELAY;
-//	}
+	// public int getDELAY() {
+	// return DELAY;
+	// }
+	//
+	// public void setDELAY(int dELAY) {
+	// DELAY = dELAY;
+	// }
 
 	// thiết lập ma trận để làm việc
 	public void init() {
@@ -144,23 +139,23 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 		numOfVoCo = 0;
 		numOfTaiChe = 0;
 		switch (workingMode) {
-		case MainGui.STANDARD:
-			DELAY = container.getStandardWorkingTime();
-			break;
-		case MainGui.STANDARD_MODE:
-			DELAY = container.getStandardWorkingTime();
-			break;
-		case MainGui.DYNAMIC_MODE:
-			DELAY = 1000;
-			break;
-		case MainGui.DSGT_MODE:
-			DELAY = 0;
-			break;
-		case MainGui.DSGT_DINAYMIC_MODE:
-			DELAY = 0;
-			break;
-		default:
-			break;
+			case MainGui.STANDARD:
+				DELAY = container.getStandardWorkingTime();
+				break;
+			case MainGui.STANDARD_MODE:
+				DELAY = container.getStandardWorkingTime();
+				break;
+			case MainGui.DYNAMIC_MODE:
+				DELAY = 1000;
+				break;
+			case MainGui.DSGT_MODE:
+				DELAY = 0;
+				break;
+			case MainGui.DSGT_DINAYMIC_MODE:
+				DELAY = 0;
+				break;
+			default:
+				break;
 		}
 		this.workStatus = 1;
 		this.workingMode = workingMode;
@@ -240,10 +235,10 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 				cell.setDustValueText(a, phanLoaiRac);
 				cell.setDustInt(b);
 				cell.setDoBan(b);
-//			listOfDustValue[ix] = cell.getDustInt();
+				// listOfDustValue[ix] = cell.getDustInt();
 				System.out.println("Độ bận hiện tại là: " + a + " -- " + c + "\nLoại rác: " + cell.getPhanLoaiRac());
-//			cell.setDustValueText(randomDust());
-//			System.out.println("Độ bẩn hiện tại: "+ i + " --" + randomDust());
+				// cell.setDustValueText(randomDust());
+				// System.out.println("Độ bẩn hiện tại: "+ i + " --" + randomDust());
 				cell.removeMouseListener(this);
 				sumOfDust += Integer.parseInt(a);
 				ix++;
@@ -256,7 +251,7 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 		}
 		setXYForCell();
 		MainGui.setLuongPinTinhToan(luongPinTinhToan);
-//		System.out.println("Độ bẩn trong initDust - Robot là: " + getSumOfDust());
+		// System.out.println("Độ bẩn trong initDust - Robot là: " + getSumOfDust());
 		System.out.println("Lượng pin tính toán được là: " + luongPinTinhToan);
 	}
 
@@ -294,12 +289,12 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 		String result = "0";
 		long ran = (long) (Math.random() * 100);
 
-//		if (ran > 70) {
-//			int index = (int) (7 * Math.random());
-//			result = HedgeAlgebra.langValuesVi[index];
-//		} else {
+		// if (ran > 70) {
+		// int index = (int) (7 * Math.random());
+		// result = HedgeAlgebra.langValuesVi[index];
+		// } else {
 		result = "" + (int) (100 * Math.random());
-//		}
+		// }
 
 		return result;
 	}
@@ -473,7 +468,7 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 				return true;
 			}
 		}
-//		System.out.print("flase");
+		// System.out.print("flase");
 		return false;
 	}
 
@@ -709,8 +704,8 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 	}
 
 	private boolean isFree(MegaCell mega) {
-//		int x = (mega.getX() / 2) * 2;
-//		int y = (mega.getY() / 2) * 2;
+		// int x = (mega.getX() / 2) * 2;
+		// int y = (mega.getY() / 2) * 2;
 		int x = mega.getX();
 		int y = mega.getY();
 
@@ -735,27 +730,27 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 		numOfSteps += 1;
 		if (x > xPrev) {
 			listCells.get(x + y * size).changeToRobot(4);
-//			container.setTestcellpane(listCells.get(x + y * size).getDustInt());
+			// container.setTestcellpane(listCells.get(x + y * size).getDustInt());
 			if ((xPrev + yPrev * size) >= 0) {
 				listCells.get(xPrev + yPrev * size).changeStatus(4);
 			}
 		} else if (x < xPrev) {
 			listCells.get(x + y * size).changeToRobot(3);
-//			container.setTestcellpane(listCells.get(x + y * size).getDustInt());
+			// container.setTestcellpane(listCells.get(x + y * size).getDustInt());
 
 			if ((xPrev + yPrev * size) >= 0) {
 				listCells.get(xPrev + yPrev * size).changeStatus(3);
 			}
 		} else if (y > yPrev) {
 			listCells.get(x + y * size).changeToRobot(2);
-//			container.setTestcellpane(listCells.get(x + y * size).getDustInt());
+			// container.setTestcellpane(listCells.get(x + y * size).getDustInt());
 
 			if ((xPrev + yPrev * size) >= 0) {
 				listCells.get(xPrev + yPrev * size).changeStatus(2);
 			}
 		} else if (y < yPrev) {
 			listCells.get(x + y * size).changeToRobot(1);
-//			container.setTestcellpane(listCells.get(x + y * size).getDustInt());
+			// container.setTestcellpane(listCells.get(x + y * size).getDustInt());
 
 			if ((xPrev + yPrev * size) >= 0) {
 				listCells.get(xPrev + yPrev * size).changeStatus(1);
@@ -778,22 +773,22 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 					MainGui.setLoaiVoCo(MainGui.getLoaiVoCo() + 1);
 					MainGui.setNumOfVoCo(MainGui.getNumOfVoCo() + 1);
 					MainGui.setLuongPin(MainGui.getLuongPin() - listCells.get(i).getPin());
-//					listCells.get(i).changeBackGround("warning.png");
+					// listCells.get(i).changeBackGround("warning.png");
 				} else if (listCells.get(i).getPhanLoaiRac() == 2) {
 					MainGui.setLoaiTaiche(MainGui.getLoaiTaiche() + 1);
 					MainGui.setNumOfTaiChe(MainGui.getNumOfTaiChe() + 1);
 					MainGui.setLuongPin(MainGui.getLuongPin() - listCells.get(i).getPin());
-//					listCells.get(i).changeBackGround("warning.png");
+					// listCells.get(i).changeBackGround("warning.png");
 
 				} else if (listCells.get(i).getPhanLoaiRac() == 3) {
 					MainGui.setLoaiHuuCo(MainGui.getLoaiHuuCo() + 1);
 					MainGui.setNumOfHuuCo(MainGui.getNumOfHuuCo() + 1);
 					MainGui.setLuongPin(MainGui.getLuongPin() - listCells.get(i).getPin());
-//					listCells.get(i).changeBackGround("warning.png");
+					// listCells.get(i).changeBackGround("warning.png");
 				}
-//				else {
-//					listCells.get(i).changeBackGround("robotX.png");
-//				}
+				// else {
+				// listCells.get(i).changeBackGround("robotX.png");
+				// }
 				listCells.get(i).setClear(true);
 				break;
 			}
@@ -816,67 +811,67 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 			if (xi == xiindex && yi == yiindex - 1 && yi > 0) {
 				cellUp = listCells.get(i); // UP
 				System.out.println("co cell Up");
-//				listCells.get(iindex).changeBackGround("warning.png");
+				// listCells.get(iindex).changeBackGround("warning.png");
 			}
 			if (xi == xiindex + 1 && yi == yiindex && xi < MainGui.getSizeOfMap() - 1) {
 				cellRight = listCells.get(i);// RIGHT
 				System.out.println("co cellRight");
-//				listCells.get(iindex).changeBackGround("warning.png");
+				// listCells.get(iindex).changeBackGround("warning.png");
 			}
 			if (xi == xiindex && yi == yiindex + 1 && yi < MainGui.getSizeOfMap() - 1) {
 				cellDown = listCells.get(i); // DOWN
 				System.out.println("co cellDown");
-//				listCells.get(iindex).changeBackGround("warning.png");
+				// listCells.get(iindex).changeBackGround("warning.png");
 			}
 			if (xi == xiindex - 1 && yi == yiindex && xi > 0) {
 				cellLeft = listCells.get(i); // LEFT
 				System.out.println("co cellLeft");
-//				listCells.get(iindex).changeBackGround("warning.png");
-//			}else {
-//				listCells.get(iindex).changeBackGround("robotX.png");
-//
+				// listCells.get(iindex).changeBackGround("warning.png");
+				// }else {
+				// listCells.get(iindex).changeBackGround("robotX.png");
+				//
 			}
 		}
 
 		boolean isSetImage = false;
 		// check trạng thái của 4 cell xung quanh nếu là -1 thì là vật cản cố định, kiểu
 		// tra status check
-//		DELAY = 250;
+		// DELAY = 250;
 		if (cellUp.getStatus() == -1 && cellUp.getIsServed() == 0) {
 			int tr = cellUp.getStatusCheck();
-			if (tr == 1 ) {
-					cellUp.orderDone();
-					System.out.println("Da phuc vu xong phia tren");
-					isSetImage = true;
-//					cellUp.changeBackgroundAndHold("robotX.png");
-					timer.setDelay(2000);
-					DELAY = 2000;
+			if (tr == 1) {
+				cellUp.orderDone();
+				System.out.println("Da phuc vu xong phia tren");
+				isSetImage = true;
+				// cellUp.changeBackgroundAndHold("robotX.png");
+				timer.setDelay(2000);
+				DELAY = 2000;
 			}
 		}
 
 		if (cellRight.getStatus() == -1 && cellRight.getIsServed() == 0) {
 			int tr = cellRight.getStatusCheck();
-			if (tr == 1 ) {
-					cellRight.orderDone();
-					System.out.println("Da phuc vu xong phia phai");					
-//					cellRight.changeBackgroundAndHold("robotX.png");
-					isSetImage = true;
-					timer.setDelay(2000);
-					DELAY = 2000;
+			if (tr == 1) {
+				cellRight.orderDone();
+				System.out.println("Da phuc vu xong phia phai");
+				// cellRight.changeBackgroundAndHold("robotX.png");
+				isSetImage = true;
+				timer.setDelay(2000);
+				DELAY = 2000;
 
 			}
 		}
 
 		if (cellDown.getStatus() == -1 && cellDown.getIsServed() == 0) {
 			int tr = cellDown.getStatusCheck();
-			if (tr == 1 ) {
-					cellDown.orderDone();
-					System.out.println("Da phuc vu xong phia duoi");				
-//					cellDown.changeBackgroundAndHold("robotX.png");
+			if (tr == 1) {
+				cellDown.orderDone();
+				System.out.println("Da phuc vu xong phia duoi");
+				// cellDown.changeBackgroundAndHold("robotX.png");
 
-					isSetImage = true;
-					timer.setDelay(2000);
-					DELAY = 2000;
+				isSetImage = true;
+				timer.setDelay(2000);
+				DELAY = 2000;
 
 			}
 		}
@@ -884,29 +879,28 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 		if (cellLeft.getStatus() == -1 && cellLeft.getIsServed() == 0) {
 			int tr = cellLeft.getStatusCheck();
 			if (tr == 1) {
-					cellLeft.orderDone();
-					System.out.println("Da phuc vu xong phia trai");					
-//					cellLeft.changeBackgroundAndHold("robotX.png");
-					isSetImage = true;
-					timer.setDelay(2000);
-					DELAY = 2000;
+				cellLeft.orderDone();
+				System.out.println("Da phuc vu xong phia trai");
+				// cellLeft.changeBackgroundAndHold("robotX.png");
+				isSetImage = true;
+				timer.setDelay(2000);
+				DELAY = 2000;
 
 			}
 		}
 
 		if (listCells.get(iindex).getStatus() != -1 && isSetImage) {
 			listCells.get(iindex).changeBackGround("robotXServed.png");
-//			listCells.get(iindex).changeBackgroundToGif("loading.gif");
-//			timer.setDelay(2000);
-//			timer.stop();
-//			timer.setDelay(2000);
-//			timer.start();
+			// listCells.get(iindex).changeBackgroundToGif("loading.gif");
+			// timer.setDelay(2000);
+			// timer.stop();
+			// timer.setDelay(2000);
+			// timer.start();
 
-		}
-		else {
+		} else {
 			timer.setDelay(2000);
 		}
-		
+
 		System.out.println("Lam viec tai: " + x + "-" + y);
 		MainGui.settextlabelcount();
 	}
@@ -918,23 +912,23 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 	// trả về thời gian làm việc tại các mode
 	private int getWorkTime(int x, int y) {
 		switch (workingMode) {
-		case MainGui.STANDARD_MODE:
-			DELAY = container.getStandardWorkingTime();
-			break;
-		case MainGui.DYNAMIC_MODE:
-			DELAY = listCells.get(x + y * size).getTimeProcess();
-			break;
-		case MainGui.STANDARD:
-			DELAY = container.getStandardWorkingTime();
-			break;
-		case MainGui.DSGT_MODE:
-			DELAY = listCells.get(x + y * size).getTimeProcess();
-			break;
-		case MainGui.DSGT_DINAYMIC_MODE:
-			DELAY = listCells.get(x + y * size).getTimeProcess();
-			break;
-		default:
-			break;
+			case MainGui.STANDARD_MODE:
+				DELAY = container.getStandardWorkingTime();
+				break;
+			case MainGui.DYNAMIC_MODE:
+				DELAY = listCells.get(x + y * size).getTimeProcess();
+				break;
+			case MainGui.STANDARD:
+				DELAY = container.getStandardWorkingTime();
+				break;
+			case MainGui.DSGT_MODE:
+				DELAY = listCells.get(x + y * size).getTimeProcess();
+				break;
+			case MainGui.DSGT_DINAYMIC_MODE:
+				DELAY = listCells.get(x + y * size).getTimeProcess();
+				break;
+			default:
+				break;
 		}
 		listWorkingTime.set(x + y * size, 100);
 

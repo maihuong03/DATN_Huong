@@ -19,17 +19,9 @@ import newone.ThaoTacFileExcel;
 import newone.DataExcel;
 import newone.ThaoTacFile;
 
-/**
- * @author Huong
- *
- */
 public class ReportPanel extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * 
-	 */
 	private MainGui mainGui;
 	private JLabel timeProcessLbl, numOfStepsLbl, duplicateStepsLbl, coverageAreaLbl;
 	private TitledBorder border;

@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package gui;
 
 import java.awt.Color;
@@ -28,15 +26,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
-/**
- * @author HuyLV
- *
- */
 public class DynamicBarrierPanel extends JPanel implements ChangeListener, KeyListener, MouseListener {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private MainGui mainGui;
@@ -186,15 +176,16 @@ public class DynamicBarrierPanel extends JPanel implements ChangeListener, KeyLi
 				return 2;
 			}
 		}
-		boolean result = mainGui.addDynamicBarrier(x, y, speed, direction); // Thêm vật cản và kiểm tra vịt rí thêm có vật cản di động
-		
+		boolean result = mainGui.addDynamicBarrier(x, y, speed, direction); // Thêm vật cản và kiểm tra vịt rí thêm có
+																			// vật cản di động
+
 		if (!result) {
 			return 1; // Nếu có vật cản di động trả về 1
 		}
-		
+
 		barrierCount += 1;
 
-		//Thêm đối tượng vào bảng
+		// Thêm đối tượng vào bảng
 		TableModel tableModel = table.getModel();
 		DefaultTableModel model = (DefaultTableModel) tableModel;
 		String leftRight = "Horizontal";

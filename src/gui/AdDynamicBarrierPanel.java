@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package gui;
 
 import java.awt.Color;
@@ -23,15 +21,8 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- * @author HuyLV
- *
- */
 public class AdDynamicBarrierPanel extends JFrame implements MouseListener, KeyListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private MainGui mainGui;
 	private DynamicBarrierPanel containerPane;
@@ -57,7 +48,7 @@ public class AdDynamicBarrierPanel extends JFrame implements MouseListener, KeyL
 		super();
 		this.mainGui = main;
 		this.containerPane = con;
-		check =false;
+		check = false;
 		getContentPane().setLayout(null);
 		setSize(325, 270);
 		setLocationRelativeTo(mainGui);
@@ -111,7 +102,7 @@ public class AdDynamicBarrierPanel extends JFrame implements MouseListener, KeyL
 		String leftRight = "Horizontal";
 		String upDown = "Vertical";
 		String[] directionListName = { leftRight, upDown };
-//		directionList = new JComboBox<>(directionListName);
+		// directionList = new JComboBox<>(directionListName);
 
 		String directionFieldTxt = "Direction = ";
 		directionFieldLbl = new JLabel(directionFieldTxt);
@@ -144,12 +135,13 @@ public class AdDynamicBarrierPanel extends JFrame implements MouseListener, KeyL
 		revalidate();
 		repaint();
 	}
+
 	public AdDynamicBarrierPanel(MainGui main, HedgeAndBarrierPanel con) {
 		super();
 
 		this.mainGui = main;
 		this.containerPane2 = con;
-		check =true;
+		check = true;
 		getContentPane().setLayout(null);
 		setSize(325, 270);
 		setLocationRelativeTo(mainGui);
@@ -236,6 +228,7 @@ public class AdDynamicBarrierPanel extends JFrame implements MouseListener, KeyL
 		revalidate();
 		repaint();
 	}
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -268,7 +261,6 @@ public class AdDynamicBarrierPanel extends JFrame implements MouseListener, KeyL
 		}
 	}
 
-	
 	// Thêm vật cản di dộng giao diện
 	private void adddynamicBarrier() {
 		String xStr = xField.getText();
@@ -293,37 +285,37 @@ public class AdDynamicBarrierPanel extends JFrame implements MouseListener, KeyL
 		}
 
 		int direction = directionList.getSelectedIndex();
-		int result ;
-		if(check==false){
-		result = containerPane.addDynamicBarrier(x, y, speed, direction);
-		}else {
+		int result;
+		if (check == false) {
+			result = containerPane.addDynamicBarrier(x, y, speed, direction);
+		} else {
 			result = containerPane2.addDynamicBarrier(x, y, speed, direction);
 		}
-			
-		switch (result) {
-		case 0:
-			String message = "Successfully Added New Dynamic Barrier";
-			this.dispose();
-			JOptionPane.showMessageDialog(mainGui, message);
-			break;
-		case 1:
-			String message1 = "Failly Added New Dynamic Barrier At This Location";
-			showResultError(message1);
-			break;
-		case 2:
-			String message2 = "This position already exists";
-			showResultError(message2);
-			break;
-		case 3:
-			String message3 = "Failly Added New Dynamic Barrier. An Unspecified Error";
-			showResultError(message3);
-			break;
 
-		default:
-			break;
+		switch (result) {
+			case 0:
+				String message = "Successfully Added New Dynamic Barrier";
+				this.dispose();
+				JOptionPane.showMessageDialog(mainGui, message);
+				break;
+			case 1:
+				String message1 = "Failly Added New Dynamic Barrier At This Location";
+				showResultError(message1);
+				break;
+			case 2:
+				String message2 = "This position already exists";
+				showResultError(message2);
+				break;
+			case 3:
+				String message3 = "Failly Added New Dynamic Barrier. An Unspecified Error";
+				showResultError(message3);
+				break;
+
+			default:
+				break;
 		}
 	}
-	
+
 	private void showResultError(String message) {
 		String warningTitle = "Warning";
 		JOptionPane.showMessageDialog(mainGui, message, warningTitle, JOptionPane.WARNING_MESSAGE);

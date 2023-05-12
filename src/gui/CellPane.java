@@ -43,9 +43,6 @@ import hcstt.Robot;
 import gui.StatusBar;
 
 public class CellPane extends JPanel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int status;
 	private Image img;
@@ -75,7 +72,7 @@ public class CellPane extends JPanel {
 	private boolean isClear = false;
 	private double pin = 0;
 	private int numOfHuuCo, numOfVoco, numOfTaiChe;
-//	private int numOfWater = 0, numOfCoffe = 0, numOfSoda = 0;
+	// private int numOfWater = 0, numOfCoffe = 0, numOfSoda = 0;
 	private JLabel labelText;
 	private String stringShow;
 	private String soundName = "resources/sound.wav";
@@ -110,27 +107,27 @@ public class CellPane extends JPanel {
 		lbl = new JLabel();
 		lbl.setBounds(1, 1, size - 2, size - 2);
 		switch (vector) {
-		case ROBOT_UP:
-			changeBackGround("robotX.png"); // up
-			vectorName = "D_U";
-			break;
-		case ROBOT_DOWN:
-			changeBackGround("robotX.png");// down
-			vectorName = "U_D";
-			break;
+			case ROBOT_UP:
+				changeBackGround("robotX.png"); // up
+				vectorName = "D_U";
+				break;
+			case ROBOT_DOWN:
+				changeBackGround("robotX.png");// down
+				vectorName = "U_D";
+				break;
 
-		case ROBOT_LEFT:
-			changeBackGround("robotX.png");// left
-			vectorName = "R_L";
-			break;
+			case ROBOT_LEFT:
+				changeBackGround("robotX.png");// left
+				vectorName = "R_L";
+				break;
 
-		case ROBOT_RIGHT:
-			changeBackGround("robotX.png");// right
-			vectorName = "L_R";
-			break;
+			case ROBOT_RIGHT:
+				changeBackGround("robotX.png");// right
+				vectorName = "L_R";
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 		this.add(lbl);
 		repaint();
@@ -151,9 +148,9 @@ public class CellPane extends JPanel {
 			changeToBarrier();
 		}
 		// -Xms512M
-//		MainGui.setTestcellpane(MainGui.getTestcellpane()+1);
-//		System.out.println("testcellpane-107: " + MainGui.getTestcellpane());
-//		this.setLayout(null);
+		// MainGui.setTestcellpane(MainGui.getTestcellpane()+1);
+		// System.out.println("testcellpane-107: " + MainGui.getTestcellpane());
+		// this.setLayout(null);
 	}
 
 	public void changeStatus(int nextVector) {
@@ -162,23 +159,23 @@ public class CellPane extends JPanel {
 			vectorName += "_";
 		}
 		switch (nextVector) {
-		case ROBOT_UP:
-			vectorName += "D_U";
-			break;
-		case ROBOT_DOWN:
-			vectorName += "U_D";
-			break;
+			case ROBOT_UP:
+				vectorName += "D_U";
+				break;
+			case ROBOT_DOWN:
+				vectorName += "U_D";
+				break;
 
-		case ROBOT_LEFT:
-			vectorName += "R_L";
-			break;
+			case ROBOT_LEFT:
+				vectorName += "R_L";
+				break;
 
-		case ROBOT_RIGHT:
-			vectorName += "L_R";
-			break;
+			case ROBOT_RIGHT:
+				vectorName += "L_R";
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 		resetBackGround(status);
 		JLabel lbl = new JLabel();
@@ -257,31 +254,30 @@ public class CellPane extends JPanel {
 		cellWater = MainGui.getNumOfWater();
 		cellCoffe = MainGui.getNumOfCoffe();
 		cellSoda = MainGui.getNumOfSoda();
-		if(MainGui.getSizeOfMap() <= 10) {
-		if (cellWater > 0 && cellCoffe > 0 && cellSoda == 0) {
-			labelText = new JLabel("<html><br><p style=\"text-align:center;\">Coffee: " + cellCoffe + "<br>Water: "
-					+ cellWater + "</html>");
-		} else if (cellWater > 0 && cellCoffe == 0 && cellSoda > 0) {
-			labelText = new JLabel("<html><br><p style=\"text-align:center;\">Water: " + cellWater + "<br>Soda: "
-					+ cellSoda + "</html>");
-		} else if (cellWater == 0 && cellCoffe > 0 && cellSoda > 0) {
-			labelText = new JLabel("<html><br><p style=\"text-align:center;\">Coffee: " + cellCoffe + "<br>Soda: "
-					+ cellSoda + "</html>");
-		} else if (cellCoffe > 0 && cellWater == 0 && cellSoda == 0) {
-			labelText = new JLabel("<html><br><p style=\"text-align:center;\">Coffee: " + cellCoffe + "</html>");
-		} else if (cellCoffe == 0 && cellWater > 0 && cellSoda == 0) {
-			labelText = new JLabel("<html><br><p style=\"text-align:center;\">Water: " + cellWater + "</html>");
-		} else if (cellCoffe == 0 && cellWater == 0 && cellSoda > 0) {
-			labelText = new JLabel("<html><br><p style=\"text-align:center;\">Soda: " + cellSoda + "</html>");
-		} else if (cellCoffe == 0 && cellWater == 0 && cellSoda == 0) {
+		if (MainGui.getSizeOfMap() <= 10) {
+			if (cellWater > 0 && cellCoffe > 0 && cellSoda == 0) {
+				labelText = new JLabel("<html><br><p style=\"text-align:center;\">Coffee: " + cellCoffe + "<br>Water: "
+						+ cellWater + "</html>");
+			} else if (cellWater > 0 && cellCoffe == 0 && cellSoda > 0) {
+				labelText = new JLabel("<html><br><p style=\"text-align:center;\">Water: " + cellWater + "<br>Soda: "
+						+ cellSoda + "</html>");
+			} else if (cellWater == 0 && cellCoffe > 0 && cellSoda > 0) {
+				labelText = new JLabel("<html><br><p style=\"text-align:center;\">Coffee: " + cellCoffe + "<br>Soda: "
+						+ cellSoda + "</html>");
+			} else if (cellCoffe > 0 && cellWater == 0 && cellSoda == 0) {
+				labelText = new JLabel("<html><br><p style=\"text-align:center;\">Coffee: " + cellCoffe + "</html>");
+			} else if (cellCoffe == 0 && cellWater > 0 && cellSoda == 0) {
+				labelText = new JLabel("<html><br><p style=\"text-align:center;\">Water: " + cellWater + "</html>");
+			} else if (cellCoffe == 0 && cellWater == 0 && cellSoda > 0) {
+				labelText = new JLabel("<html><br><p style=\"text-align:center;\">Soda: " + cellSoda + "</html>");
+			} else if (cellCoffe == 0 && cellWater == 0 && cellSoda == 0) {
+				labelText = new JLabel("");
+			} else if (cellCoffe > 0 && cellWater > 0 && cellSoda > 0) {
+				labelText = new JLabel("<html><br><p style=\"text-align:center;\">Coffee: " + cellCoffe + "<br>Water: "
+						+ cellWater + "<br>Soda: " + cellSoda + "</html>");
+			}
+		} else {
 			labelText = new JLabel("");
-		} else if (cellCoffe > 0 && cellWater > 0 && cellSoda > 0) {
-			labelText = new JLabel("<html><br><p style=\"text-align:center;\">Coffee: " + cellCoffe + "<br>Water: "
-					+ cellWater + "<br>Soda: " + cellSoda + "</html>");
-		}
-		}
-		else {
-			labelText  = new JLabel("");
 		}
 		labelText.setHorizontalAlignment(SwingConstants.CENTER);
 		labelText.setForeground(Color.BLACK);
@@ -292,14 +288,14 @@ public class CellPane extends JPanel {
 		if (dustLabel != null) {
 			remove(dustLabel);
 		}
-//		sử dụng tập luật vào đây
-//		changeStatusBar(5, 4, 400);
+		// sử dụng tập luật vào đây
+		// changeStatusBar(5, 4, 400);
 		repaint();
 	}
 
 	////////////////////
 
-//	
+	//
 
 	public void orderDone() {
 		setIsServed(1);
@@ -345,7 +341,7 @@ public class CellPane extends JPanel {
 		System.out.println("Point: " + point);
 
 		repaint();
-//		Toolkit.getDefaultToolkit().beep();
+		// Toolkit.getDefaultToolkit().beep();
 		if (MainGui.getSoundMode() == 0) {
 
 			try {
@@ -353,8 +349,8 @@ public class CellPane extends JPanel {
 				clip = AudioSystem.getClip();
 				clip.open(audioInputStream);
 				clip.start();
-//			Thread.sleep(500);
-//			clip.close();
+				// Thread.sleep(500);
+				// clip.close();
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -400,7 +396,7 @@ public class CellPane extends JPanel {
 		Image newimg = img.getScaledInstance(size, size, java.awt.Image.SCALE_SMOOTH);
 		ImageIcon newIcon = new ImageIcon(newimg);
 		lbl.setIcon(newIcon);
-//		lbl.getGraphics().drawString("Hello", 1, 1);
+		// lbl.getGraphics().drawString("Hello", 1, 1);
 	}
 
 	public void changeBackgroundAndHold(String backName) {
@@ -469,7 +465,7 @@ public class CellPane extends JPanel {
 		dustLabel.setBounds(1, 1, size - 2, size - 2);
 
 		this.add(dustLabel);
-//		dustLabel.setVisible(showDustValue);
+		// dustLabel.setVisible(showDustValue);
 		dustLabel.setVisible(false);
 		repaint();
 	}
@@ -513,13 +509,13 @@ public class CellPane extends JPanel {
 
 	public int getPhanLoaiRac() {
 
-//		if (getDustInt() >= 70 && getDustInt() < 80) {
-//			phanLoaiRac = 1;
-//		} else if (getDustInt() >= 80 && getDustInt() < 90) {
-//			phanLoaiRac = 2;
-//		} else if (getDustInt() >= 90 && getDustInt() <= 100) {
-//			phanLoaiRac = 3;
-//		}
+		// if (getDustInt() >= 70 && getDustInt() < 80) {
+		// phanLoaiRac = 1;
+		// } else if (getDustInt() >= 80 && getDustInt() < 90) {
+		// phanLoaiRac = 2;
+		// } else if (getDustInt() >= 90 && getDustInt() <= 100) {
+		// phanLoaiRac = 3;
+		// }
 		return phanLoaiRac;
 	}
 

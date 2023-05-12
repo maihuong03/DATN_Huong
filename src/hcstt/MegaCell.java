@@ -1,13 +1,6 @@
-/**
- * 
- */
+
 package hcstt;
 
-
-/**
- * @author HuyLV
- *
- */
 public class MegaCell {
 	private MegaCell parent;
 	private int x;
@@ -57,9 +50,9 @@ public class MegaCell {
 		this.status = status;
 	}
 
-	public boolean isEqual(MegaCell mega){ //So sánh 2 megacell 
-		boolean equalX = (mega.getX()/2 == this.x/2);
-		boolean equalY = (mega.getY()/2 == this.y/2);
+	public boolean isEqual(MegaCell mega) { // So sï¿½nh 2 megacell
+		boolean equalX = (mega.getX() / 2 == this.x / 2);
+		boolean equalY = (mega.getY() / 2 == this.y / 2);
 		return equalX && equalY;
 	}
 
