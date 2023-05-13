@@ -28,7 +28,9 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int size; // Kích thước vùng làm việc
+	private int size; // Kích thước vùng làm việc (chẵn)
+	private int actual_size; // Kích thước đầu vào vùng làm việc
+	private boolean isOddSize;
 	private Timer timer;
 	private int DELAY = 250; // delay giữa cac step
 	private List<CellPane> listCells;
@@ -59,6 +61,9 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 	// lấy thời gian DELAY
 
 	public Robot(int size, MainGui f) {
+		this.isOddSize = size % 2 == 1;
+		this.actual_size = size;
+		size += (size % 2);
 		this.container = f;
 		this.size = size;
 		listCellStatus = new ArrayList<>();
@@ -102,12 +107,18 @@ public class Robot extends JPanel implements ActionListener, MouseListener {
 				gbc.gridy = row;
 
 				CellPane cellPane = new CellPane(0, robotSize, this);
-				cellPane.addMouseListener(this);
+				if (this.isOddSize && (row == actual_size || col == actual_size)) {
+					cellPane.changeToBarrier();
+					numOfBarrier++;
+				} else {
+					cellPane.addMouseListener(this);
+					Border border = null;
+					border = new MatteBorder(1, 1, 0, 0, Color.GRAY); // màu sắc giữa các ô
+					cellPane.setBorder(border);
+					add(cellPane, gbc);
+				}
 				listCells.add(cellPane);
-				Border border = null;
-				border = new MatteBorder(1, 1, 0, 0, Color.GRAY); // màu sắc giữa các ô
-				cellPane.setBorder(border);
-				add(cellPane, gbc);
+				
 
 				// double r = Math.random() * 10;
 				int workingTimeInit = (int) 250;
